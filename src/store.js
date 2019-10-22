@@ -6,7 +6,7 @@ import {rootReducer} from './statemanagement/reducers/rootReducer';
 const store = createStore (
     
     rootReducer,
-    window._REDUX_DEVTOOLS_EXTENTION_&&window._REDUX_DEVTOOLS_EXTENTION_()
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     
 );
 
