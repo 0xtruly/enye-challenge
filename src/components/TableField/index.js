@@ -1,6 +1,12 @@
 export const columns = [
 
     {
+        title: 'User Id',
+        dataIndex: 'Id',
+        key: 'Id'
+    },
+
+    {
         title: 'First Name',
         dataIndex: 'firstName',
         key: 'firstName'

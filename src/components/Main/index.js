@@ -1,8 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import uuidV5 from 'uuid/v5';
 import { Form, Input, Button, DatePicker, Card, Table, Divider} from 'antd';
 import { columns } from '../TableField/index';
-// import {formActions} from '../../statemanagement/actions/index';
+
+
 
 const UserForm = () => 
 {
@@ -10,9 +12,10 @@ const UserForm = () =>
     const { firstName, lastName, age, hobby, birthday, tableData} = useSelector(state => state);
     
     const dispatch = useDispatch();
-  
+    
+    
 
-    const userInfo =  {firstName, lastName, birthday, age, hobby}
+    const userInfo =  {Id:uuidV5(`${firstName}${lastName}`, uuidV5.URL), firstName, lastName, birthday, age, hobby}
 
     /**dispatch actions */
     const changeFirstName = (e) => {
@@ -53,8 +56,8 @@ const UserForm = () =>
     /**form layout */
     const formItemLayout = 
     {
-        labelCol: { span: 4 },
-        wrapperCol: { span: 20 }
+        labelCol: { span: 6 },
+        wrapperCol: { span: 18 }
     }
 
     /**button layout */
@@ -65,6 +68,7 @@ const UserForm = () =>
 
 
     const { Item } = Form;
+   
 
     return(
 
@@ -100,7 +104,8 @@ const UserForm = () =>
             </Card>
             <Divider />
             <div style={{maxWidth:"1200px",margin:"auto",marginTop:"30px"}}>
-                <Table columns={columns} dataSource={ tableData } key={columns.key} />
+            
+                <Table columns={columns} dataSource={ tableData } key={tableData} />
             </div>
         </>
     );
