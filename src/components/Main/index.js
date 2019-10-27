@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import uuidV5 from 'uuid/v5';
 import { Form, Input, Button, DatePicker, Card, Table, Divider} from 'antd';
 import { columns } from '../TableField/index';
 
@@ -15,7 +14,7 @@ const UserForm = () =>
     
     
 
-    const userInfo =  {Id:uuidV5(`${firstName}${lastName}`, uuidV5.URL), firstName, lastName, birthday, age, hobby}
+    const userInfo =  {firstName, lastName, birthday, age, hobby}
 
     /**dispatch actions */
     const changeFirstName = (e) => {

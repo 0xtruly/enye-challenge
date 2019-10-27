@@ -2,8 +2,8 @@ export const columns = [
 
     {
         title: 'User Id',
-        dataIndex: 'Id',
-        key: 'Id'
+        dataIndex: 'userid',
+        key: 'userid'
     },
 
     {
