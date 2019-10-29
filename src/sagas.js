@@ -2,7 +2,8 @@ import { put, take,fork, takeEvery} from 'redux-saga/effects';
 import { eventChannel } from 'redux-saga';
 import firebase from "firebase";
 import { app } from './statemanagement/sendUserData';
-import { formData } from './statemanagement/sendUserData'
+
+import {ApiRequest} from './components/Api/index';
 
 
  
@@ -11,17 +12,17 @@ const db = firebase.database(app);//firebase database service
 /**create new user on form submit
  * and send it to the database
  */
+
 function* createUserAsync(data) {
   try {
     yield put({ type: "Sending" });
-    yield formData.push().set(data.payload);
+    yield ApiRequest(data.payload);
     yield put({ type: "Saved"});
   } catch (err) {
     yield put({ type: "ERROR_SENDING" });
     console.log("something went wrong");
   }
 }
-
 
 /**listen for changes in the database
  * and send the updated data back
